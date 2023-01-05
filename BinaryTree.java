@@ -154,11 +154,12 @@ class BinaryTree {
 
   public boolean isBST (Node root) {
     if (root == null) return false;
+    int left = isBST(root.left.data), right = isBST(root.right.data);
 
     // if the node to the left is larger than the previous node, is false
-    if (isBST(root.left) > root) { return false;} else return true;
+    if (left > root.data) { return false;} else return true;
     // if the node to the right is smaller than the previous node, is false
-    if (isBST(root.right) < root) { return false;} else return true;
+    if (right > root.data) { return false;} else return true;
 
     return false;
   }
