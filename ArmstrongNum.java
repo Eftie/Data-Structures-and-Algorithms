@@ -5,17 +5,18 @@ import java.util.ArrayList;
 
 public class ArmstrongNum {
     public static boolean isNarcissistic(int val) {
+        // Arraylist to save individual digits
         ArrayList<Integer> digits = new ArrayList<Integer>();
         int digitAmt = 0, newVal = val;
 
+        // gets the individual digits and saves them
         while (newVal > 0) {
             digits.add(0, newVal % 10);
             newVal /= 10;
             digitAmt++;
         }
 
-        System.out.println(digitAmt);
-
+        // raises each individual digit to the power of digit amt and compares to val
         double compare = 0;
         for (int i = 0; i < digits.size(); i++) {
             compare += Math.pow(digits.get(i), digitAmt);
